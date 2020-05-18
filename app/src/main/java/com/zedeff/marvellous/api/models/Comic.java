@@ -5,4 +5,5 @@ public class Comic {
     public String title;
     public String description;
     public int pageCount;
+    public Thumbnail thumbnail;
 }

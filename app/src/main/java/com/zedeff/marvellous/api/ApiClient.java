@@ -78,7 +78,7 @@ public class ApiClient {
         };
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
-        loggingInterceptor.setLevel(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
+        loggingInterceptor.level(BuildConfig.DEBUG ? HttpLoggingInterceptor.Level.BODY : HttpLoggingInterceptor.Level.NONE);
 
         okhttp3.Cache cache = new okhttp3.Cache(context.getCacheDir(), 10 * 1024 * 1024);
         OkHttpClient.Builder builder = new OkHttpClient.Builder().cache(cache);
@@ -89,6 +89,6 @@ public class ApiClient {
                 .addInterceptor(loggingInterceptor).build();
     }
 
-    public class NoNetworkException extends IOException {
+    private static class NoNetworkException extends IOException {
     }
 }
